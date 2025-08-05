@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Network Concern - Business Technology Partners</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0a1425 0%, #1a2744 50%, #2a3f66 100%);
+            color: white;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 15px 50px;
+            background: rgba(10, 20, 37, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(45deg, #4a90e2, #7ec8e3);
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+            position: relative;
+        }
+
+        .logo-icon::before {
+            content: '';
+            position: absolute;
+            top: 30%;
+            left: 30%;
+            width: 40%;
+            height: 40%;
+            background: rgba(255, 255, 255, 0.3);
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 300;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: #4a90e2;
+        }
+
+        .nav-links a.active {
+            color: #4a90e2;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #4a90e2;
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 100px 20px 50px;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(74, 144, 226, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(126, 200, 227, 0.1) 0%, transparent 50%);
+        }
+
+        .hero-content {
+            max-width: 800px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-logo {
+            display: inline-flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .hero-logo-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(45deg, #4a90e2, #7ec8e3);
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+            position: relative;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .hero-logo-icon::before {
+            content: '';
+            position: absolute;
+            top: 30%;
+            left: 30%;
+            width: 40%;
+            height: 40%;
+            background: rgba(255, 255, 255, 0.3);
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 300;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #ffffff, #b3d9ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero .tagline {
+            font-size: 1.2rem;
+            color: #b3d9ff;
+            margin-bottom: 60px;
+            font-weight: 300;
+        }
+
+        .quote-section {
+            position: absolute;
+            right: 100px;
+            top: 200px;
+            max-width: 300px;
+            text-align: right;
+        }
+
+        .quote-mark {
+            font-size: 4rem;
+            color: #4a90e2;
+            line-height: 1;
+            margin-bottom: 10px;
+        }
+
+        .quote-text {
+            font-style: italic;
+            margin-bottom: 15px;
+            color: #b3d9ff;
+        }
+
+        .quote-author {
+            font-weight: bold;
+            color: white;
+            font-size: 1.1rem;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 100px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .services-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .services-header h2 {
+            font-size: 2rem;
+            color: #b3d9ff;
+            margin-bottom: 20px;
+            font-weight: 300;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 50px;
+            margin-top: 60px;
+        }
+
+        .service-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 40px 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(74, 144, 226, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .service-card:hover::before {
+            left: 100%;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(74, 144, 226, 0.3);
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: white;
+        }
+
+        .service-card h4 {
+            font-size: 1.2rem;
+            color: #b3d9ff;
+            margin-bottom: 20px;
+            font-weight: 300;
+        }
+
+        .service-card .subtitle {
+            color: #4a90e2;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+
+        .service-divider {
+            width: 60px;
+            height: 2px;
+            background: #4a90e2;
+            margin: 20px auto;
+        }
+
+        .service-card p {
+            color: #b3d9ff;
+            line-height: 1.6;
+        }
+
+        /* About Section */
+        .about {
+            padding: 100px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .about-header {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .about-number {
+            font-size: 1.2rem;
+            color: #4a90e2;
+            font-weight: bold;
+        }
+
+        .about-title {
+            font-size: 3rem;
+            color: white;
+            font-weight: 300;
+        }
+
+        .about-arrow {
+            color: #4a90e2;
+            font-size: 2rem;
+            margin-left: auto;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .about-arrow:hover {
+            transform: translateX(10px);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 50px;
+            align-items: start;
+        }
+
+        .about-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 40px;
+            margin-bottom: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .about-card:hover {
+            background: rgba(255, 255, 255, 0.08);
+            transform: translateX(10px);
+        }
+
+        .about-card .card-header {
+            color: #4a90e2;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+
+        .about-card h3 {
+            font-size: 1.8rem;
+            color: white;
+            margin-bottom: 20px;
+            font-weight: 400;
+        }
+
+        .about-card p {
+            color: #b3d9ff;
+            line-height: 1.7;
+        }
+
+        .about-image {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, #1a2744, #2a3f66);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-image::before {
+            content: '🤝';
+            font-size: 4rem;
+            opacity: 0.3;
+        }
+
+        /* Animations */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 15px 20px;
+            }
+
+            .nav-links {
+                gap: 20px;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .quote-section {
+                position: static;
+                margin-top: 40px;
+                text-align: center;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .about-header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .about-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <div class="logo-icon"></div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#" class="active">Home</a></li>
+                <li><a href="#">Our Services</a></li>
+                <li><a href="#">Tech Stack</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Blog</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-logo">
+                <div class="hero-logo-icon"></div>
+                <div>
+                    <h1>Network<br>Concern</h1>
+                    <p class="tagline">Business Technology Partners</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="quote-section">
+            <div class="quote-mark">"</div>
+            <p class="quote-text">Investing in tomorrow's technology today is more critical than ever...</p>
+            <div class="quote-author">Bill Gates</div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services">
+        <div class="services-header">
+            <p style="color: #4a90e2; font-size: 0.9rem; margin-bottom: 10px;">02</p>
+            <h2>Who we serve</h2>
+        </div>
+        
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>Local</h3>
+                <h4>Businesses</h4>
+                <div class="subtitle">Empowering Your Business, Simplifying Your Technology</div>
+                <div class="service-divider"></div>
+                <p>Let us handle your IT while you focus on growth. We simplify your technology, ensuring your business runs efficiently, securely, and effectively every day.</p>
+            </div>
+            
+            <div class="service-card">
+                <h3>National</h3>
+                <h4>Clients</h4>
+                <div class="subtitle">Your Nationwide IT Partner: Seamless, Scalable IT Solutions</div>
+                <div class="service-divider"></div>
+                <p>Expand confidently with scalable IT solutions. As your trusted partner, we deliver seamless, secure technology that grows with your business across the nation.</p>
+            </div>
+            
+            <div class="service-card">
+                <h3>International</h3>
+                <h4>Clients</h4>
+                <div class="subtitle">Global IT Excellence: Connecting Your Business Worldwide</div>
+                <div class="service-divider"></div>
+                <p>Connect your business to the world effortlessly. Our global IT services ensure smooth, secure operations, tailored to meet your international business needs.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about">
+        <div class="about-header">
+            <span class="about-number">03</span>
+            <span style="color: #4a90e2;">About Us</span>
+            <h2 class="about-title">Who we are?</h2>
+            <div class="about-arrow">→</div>
+        </div>
+        
+        <div class="about-content">
+            <div>
+                <div class="about-card">
+                    <div class="card-header">Our Digital Advantage</div>
+                    <h3>Empowering Your Digital Journey</h3>
+                    <p>At Network Concern, we're not just a technology company; we're your partner in innovation. With over a decade of experience, we've evolved from a small tech team to a leading provider of comprehensive IT solutions that align perfectly with our premium technological services.</p>
+                </div>
+                
+                <div class="about-card">
+                    <div class="card-header">Client Oriented Solutions</div>
+                    <h3>Strategic Insights</h3>
+                    <p>Our journey began with a simple mission: to harness the power of technology to empower businesses. Over the years, we've evolved from a small tech team to a leading provider of comprehensive solutions. This insight has driven us to create customized solutions that align with your unique business needs.</p>
+                </div>
+                
+                <div class="about-card">
+                    <div class="card-header">From Vet to Robust</div>
+                    <h3>Trusted IT Solutions for All</h3>
+                    <p>We serve a diverse range of clients, from ambitious startups to established corporations, offering strategic IT consulting, advanced cybersecurity, innovative software development, and groundbreaking cloud solutions. Our commitment is to understand and address the distinct challenges and aspirations of each business we partner with.</p>
+                </div>
+            </div>
+            
+            <div class="about-image">
+                <!-- Placeholder for image -->
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Remove active class from all links
+                document.querySelectorAll('.nav-links a').forEach(l => l.classList.remove('active'));
+                
+                // Add active class to clicked link
+                this.classList.add('active');
+            });
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 100) {
+                navbar.style.background = 'rgba(10, 20, 37, 0.98)';
+            } else {
+                navbar.style.background = 'rgba(10, 20, 37, 0.95)';
+            }
+        });
+
+        // Animate elements on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe service cards and about cards
+        document.querySelectorAll('.service-card, .about-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'all 0.6s ease';
+            observer.observe(card);
+        });
+
+        // Add click effect to about arrow
+        document.querySelector('.about-arrow').addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
+</body>
+</html>
