@@ -107,7 +107,11 @@ nav {
     font-weight: bold;
 }
 
-.logo::before {
+.navbar-logo{
+    width: 1.5rem;
+}
+
+/* .logo::before {
     content: '';
     width: 0;
     height: 0;
@@ -115,7 +119,7 @@ nav {
     border-right: 15px solid transparent;
     border-bottom: 25px solid #00a8ff;
     margin-right: 10px;
-}
+} */
 
 .nav-links {
     display: flex;
@@ -219,15 +223,20 @@ nav {
     justify-self: center;
     position: relative;
     max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .quote-mark {
-    font-size: 4rem;
-    color: #00a8ff;
+    width: 100%;
+    max-height: 5rem;
     opacity: 0.3;
-    position: absolute;
-    top: -1rem;
-    right: 0;
+}
+
+.quote-mark > img{
+    width: 50%;
+    height: auto;
 }
 
 .quote-text {
@@ -240,9 +249,14 @@ nav {
 }
 
 .quote-author {
-    font-size: 1rem;
-    color: #00a8ff;
-    font-weight: bold;
+    width: 100%;
+    max-height: 5rem;
+}
+
+.quote-author > img{
+    width: 50%;
+    height: auto;
+    filter: invert(100%) brightness(75%);
 }
 
 /* Hero CTA Buttons */
@@ -346,11 +360,32 @@ nav {
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.1);
     transition: transform 0.3s, box-shadow 0.3s;
+    position: relative;
 }
 
 .service-highlight:hover {
     transform: translateY(-10px);
     box-shadow: 0 20px 40px rgba(0, 168, 255, 0.2);
+}
+
+.service-ribbon {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background: linear-gradient(90deg, rgba(0,151,230,0.35) 60%, rgba(0,168,255,0.35) 100%);
+    color: #fff;
+    font-size: 0.95rem;
+    font-weight: 500;
+    padding: 0.4rem 0;
+    border-radius: 0 0 12px 12px;
+    box-shadow: 0 2px 8px rgba(0,168,255,0.05);
+    opacity: 0.65;
+    letter-spacing: 1px;
+    pointer-events: none;
+    z-index: 2;
+    text-align: center;
+    overflow: hidden;
 }
 
 .service-highlight .service-icon {
@@ -367,7 +402,10 @@ nav {
 .service-highlight p {
     color: #b0c4de;
     line-height: 1.6;
+    margin-bottom: 1rem;
 }
+
+
 
 /* ====== Tech Stack Service Items ====== */
 .service-grid {
@@ -869,13 +907,15 @@ nav {
 
 .social-icons {
     display: flex;
+    justify-content: center;
     gap: 1rem;
     margin-top: 2rem;
     grid-column: 1;
     grid-row: 3;
+    flex-wrap: wrap;
 }
 
-.social-icon {
+.social-icon, .contact-icon {
     display: inline-block;
     padding: 0.8rem 1.5rem;
     background: rgba(0, 168, 255, 0.2);
@@ -886,16 +926,27 @@ nav {
     transition: all 0.3s;
 }
 
-.social-icon:hover {
+.social-icon:hover, .contact-icon:hover {
     background: #00a8ff;
     color: white;
     transform: translateY(-2px);
 }
 
 .map-container {
+    max-width: 90%;
     grid-column: 1;
     grid-row: 4;
-    margin: 2rem 0;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    padding: .5rem;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 168, 255, 0.1);
+}
+
+.map-container > iframe{
+    max-width:100%;
+    border-radius: 15px;
 }
 
 .contact-cta {

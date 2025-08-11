@@ -16,7 +16,10 @@
     <!-- Navigation -->
     <nav>
         <div class="nav-container">
-            <div class="logo">Network Concern</div>
+            <div class="logo">
+                <img class="navbar-logo" src="./resources/logos/NCLogo-512x512.png" alt="Network Concern Logo">
+                <span>Network Concern</span>
+            </div>
             <ul class="nav-links">
                 <li><a href="index.html" class="active">Home</a></li>
                 <li><a href="our-services.html">Our Services</a></li>
@@ -27,7 +30,7 @@
         </div>
     </nav>
 
-    <!-- Section 1: Hero Section -->
+    <!-- Section 0: Hero Section -->
     <section class="hero">
         <div class="hero-content">
             <div class="hero-logo">
@@ -42,11 +45,13 @@
         </div>
 
         <div class="quote-section">
-            <!-- TODO: Replace the double quotes with an image of the double quotes mark -->
-            <div class="quote-mark">"</div>
+            <div class="quote-mark">
+                <img src="./resources/ui elements/double-quotes.png">
+            </div>
             <p class="quote-text">Investing in tomorrow's technology today is more critical than ever...</p>
-            <!-- TODO: Replace the name for the picture with the signature of the person who said the quote -->
-            <div class="quote-author">Bill Gates</div>
+            <div class="quote-author">
+                <img src="./resources/ui elements/Bill_Gates-signature .png">
+            </div>
         </div>
 
         <div class="hero-cta">
@@ -55,7 +60,7 @@
         </div>
     </section>
 
-    <!-- Section 2: Who We Serve -->
+    <!-- Section 1: Who We Serve -->
     <section class="section">
         <div class="container">
             <div class="section-header">
@@ -116,11 +121,11 @@
         </div>
     </section>
 
-    <!-- Section 3: About Us Preview -->
+    <!-- Section 2: About Us Preview -->
     <section class="section">
         <div class="container">
             <div class="section-header">
-                <div class="section-label">03</div>
+                <div class="section-label">02</div>
                 <span class="about-us-label">About Us</span>
                 <h2 class="section-title">Who We Are</h2>
                 <div class="about-arrow">→</div>
@@ -143,7 +148,7 @@
                             businesses. We create customized solutions that align with your unique business needs.</p>
                     </div>
 
-                    <div class="about-card">
+                    <div class="about-card" id="last-about-card">
                         <div class="card-header">From Vet to Robust</div>
                         <h3>Trusted IT Solutions for All</h3>
                         <p>We serve a diverse range of clients, from ambitious startups to established corporations,
@@ -159,11 +164,11 @@
         </div>
     </section>
 
-    <!-- Section 4: Services Overview -->
+    <!-- Section 3: Services Overview -->
     <section class="section">
         <div class="container">
             <div class="section-header">
-                <div class="section-label">01</div>
+                <div class="section-label">03</div>
                 <h2 class="section-title">What We Do</h2>
                 <p class="section-subtitle">Comprehensive IT solutions tailored to your business needs</p>
             </div>
@@ -173,30 +178,63 @@
                     <div class="service-icon">🔒</div>
                     <h3>Cybersecurity</h3>
                     <p>Protect your business with advanced security solutions and threat monitoring</p>
+                    <div class="service-ribbon">IT Services</div>
                 </div>
 
                 <div class="service-highlight">
                     <div class="service-icon">☁️</div>
-                    <h3>Cloud Solutions</h3>
-                    <p>Scalable cloud infrastructure and migration services for modern businesses</p>
+                    <h3>Managed Services</h3>
+                    <p>Comprehensive management of your IT infrastructure and applications</p>
+                    <div class="service-ribbon">IT Services</div>
                 </div>
 
                 <div class="service-highlight">
-                    <div class="service-icon">💻</div>
-                    <h3>Software Development</h3>
-                    <p>Custom software solutions designed to streamline your operations</p>
+                    <div class="service-icon">📞</div>
+                    <h3>VOIP Phone System</h3>
+                    <p>Modern VOIP phone systems for seamless communication and collaboration.</p>
+                    <div class="service-ribbon">IT Services</div>
                 </div>
 
                 <div class="service-highlight">
                     <div class="service-icon">📊</div>
                     <h3>IT Consulting</h3>
                     <p>Strategic technology guidance to optimize your business processes</p>
+                    <div class="service-ribbon">IT Services</div>
+                </div>
+
+                <!-- Field Services Highlights -->
+                <div class="service-highlight">
+                    <div class="service-icon">🌐</div>
+                    <h3>Networking & Cabling</h3>
+                    <p>Professional design, installation, and maintenance of network infrastructure, structured cabling, and wireless solutions for reliable connectivity.</p>
+                    <div class="service-ribbon">Field Services</div>
+                </div>
+
+                <div class="service-highlight">
+                    <div class="service-icon">🔑</div>
+                    <h3>Access Control Systems</h3>
+                    <p>Deployment and support of advanced access control solutions, including keycard, biometric, and smart entry systems for secure facilities.</p>
+                    <div class="service-ribbon">Field Services</div>
+                </div>
+
+                <div class="service-highlight">
+                    <div class="service-icon">🛡️</div>
+                    <h3>Security Systems</h3>
+                    <p>Installation and integration of surveillance cameras, alarm systems, and monitoring solutions to protect your business assets.</p>
+                    <div class="service-ribbon">Field Services</div>
+                </div>
+
+                <div class="service-highlight">
+                    <div class="service-icon">🏗️</div>
+                    <h3>Infrastructure Planning & Deployment</h3>
+                    <p>Comprehensive planning and deployment of IT infrastructure, including server rooms, data centers, and technology rollouts for new or expanding locations.</p>
+                    <div class="service-ribbon">Field Services</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Section 5: Blog Post Placeholder Section -->
+    <!-- Section 4: Blog Post Placeholder Section -->
     <section class="section blog-latest-section" id="latest-blog-post">
         <div class="container">
             <div class="section-header">
@@ -212,7 +250,7 @@
         </div>
     </section>
 
-    <!-- Section 6: Clients Section -->
+    <!-- Section 5: Clients Section -->
     <section class="section clients-section" id="clients">
         <div class="container">
             <div class="section-header">
@@ -220,6 +258,9 @@
                 <h2 class="section-title">Trusted by Leading Businesses</h2>
                 <p class="section-subtitle">We're proud to partner with innovative companies across industries</p>
             </div>
+            <p class="clients-intro">Join our growing list of satisfied clients who trust us with their technology needs.
+                From local businesses to international enterprises, we deliver solutions that drive success.</p>
+            <!-- TODO: Scrape the internet and get all of our clients logos -->
             <!-- Clients Logos Carousel -->
             <div class="clients-logos-carousel">
                 <img src="assets/clients/client1.png" alt="Client 1" class="client-logo">
@@ -228,6 +269,7 @@
                 <img src="assets/clients/client4.png" alt="Client 4" class="client-logo">
                 <img src="assets/clients/client5.png" alt="Client 5" class="client-logo">
             </div>
+            <!-- TODO: Add real reviews -->
             <!-- Client Reviews Slider -->
             <div class="client-reviews-slider">
                 <div class="review-slide active" id="review-slide-0">
@@ -272,26 +314,6 @@
             </div>
         </div>
     </section>
-    <script>
-        // Simple slider logic for reviews
-        const slides = document.querySelectorAll('.review-slide');
-        const navBtns = document.querySelectorAll('.review-nav-btn');
-        let currentSlide = 0;
-        function showReviewSlide(idx) {
-            slides.forEach((slide, i) => {
-                slide.classList.toggle('active', i === idx);
-                if (navBtns[i]) navBtns[i].classList.toggle('active', i === idx);
-            });
-            currentSlide = idx;
-        }
-        // Auto-advance every 7 seconds
-        setInterval(() => {
-            let next = (currentSlide + 1) % slides.length;
-            showReviewSlide(next);
-        }, 7000);
-        // Initialize
-        showReviewSlide(0);
-    </script>
 
     <!-- Section 5: Contact & CTA -->
     <section class="section contact-section">
@@ -315,19 +337,21 @@
                     <div class="social-icons">
                         <a href="#" class="social-icon">LinkedIn</a>
                         <a href="#" class="social-icon">Twitter/X</a>
+                        <a href="#" class="social-icon">Instagram</a>
                         <a href="#" class="social-icon">YouTube</a>
+                        <a href="#" class="contact-icon">Text us on WhatsApp</a>
+                        <a href="#" class="contact-icon">Give us a call</a>
+                        <a href="#" class="contact-icon">Drop us an Email</a>
+                        <a href="#" class="contact-icon">Send us a Message on 3CX</a>
                     </div>
 
                     <!-- TODO: Replace the map with an icon that when clicked will the open the map as a popup -->
                     <div class="map-container">
-                        <!-- <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3505.5220500000003!2d-82.45926562500001!3d27.953587999999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88c2c60662a5e58b%3A0x151075a286a8e60!2s1000%20N%20Westshore%20Blvd%2C%20Tampa%2C%20FL%2033607!5e0!3m2!1sen!2sus!4v1722891600000!5m2!1sen!2sus"
-                            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-                            referrerpolicy="no-referrer-when-downgrade"></iframe> -->
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3524.2223471239167!2d-82.53132892384093!3d27.956475976040586!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88c2c2fc97e001eb%3A0xc7a3b857108b0df8!2sNetwork%20Concern!5e0!3m2!1sen!2sus!4v1754939323826!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
 
-                    <!-- TODO: Add container with the action buttons for wahtsapp, send email, make calls and send sms -->
-
+                    <!-- TODO: Make this form to slide down when scrolling to match the map -->
+                    <!-- Contact Form -->
                     <div class="contact-cta">
                         <form class="contact-form" action="#" method="post" autocomplete="on">
                             <div class="form-group">
