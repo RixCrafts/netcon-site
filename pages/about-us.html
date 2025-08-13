@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Network Concepts</title>
+    <link rel="stylesheet" href="../styles.css">
+    <script src="../logic.js" defer></script>
+
+</head>
+<body class="about-us-page">
+    <!-- Network Background -->
+    <div class="network-bg" id="networkBg"></div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">
+                <img class="navbar-logo" src="../resources/logos/NCLogo-512x512.png" alt="Network Concern Logo">
+                <span>Network Concern</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="our-services.html">Our Services</a></li>
+                <li><a href="tech-stack.html">Tech Stack</a></li>
+                <!-- <li><a href="#about" class="active">About Us</a></li> -->
+                <li><a href="#blog">Blog</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>About Us</h1>
+        <!-- Client Reviews Slider -->
+            <div class="client-reviews-slider">
+                <div class="review-slide active" id="review-slide-0">
+                    <div class="review-content">
+                        <div class="review-quote">"</div>
+                        <p class="review-text">
+                            Network Concern's team delivered a seamless cloud migration for us. Their expertise and
+                            support were outstanding!
+                        </p>
+                        <div class="review-author">Alex Morgan</div>
+                        <div class="review-company">CTO, BluePeak Logistics</div>
+                    </div>
+                </div>
+                <div class="review-slide" id="review-slide-1">
+                    <div class="review-content">
+                        <div class="review-quote">"</div>
+                        <p class="review-text">
+                            Their cybersecurity solutions gave us peace of mind. We trust Network Concern to keep our
+                            data safe.
+                        </p>
+                        <div class="review-author">Priya Desai</div>
+                        <div class="review-company">IT Manager, GreenLeaf Health</div>
+                    </div>
+                </div>
+                <div class="review-slide" id="review-slide-2">
+                    <div class="review-content">
+                        <div class="review-quote">"</div>
+                        <p class="review-text">
+                            The custom software they built for us transformed our workflow. Highly recommended!
+                        </p>
+                        <div class="review-author">Jordan Lee</div>
+                        <div class="review-company">Operations Director, Nova Retail</div>
+                    </div>
+                </div>
+                <!-- Slider Controls -->
+                <div class="review-nav-container">
+                    <button class="review-nav-btn active" onclick="showReviewSlide(0)"
+                        aria-label="Show review 1"></button>
+                    <button class="review-nav-btn" onclick="showReviewSlide(1)" aria-label="Show review 2"></button>
+                    <button class="review-nav-btn" onclick="showReviewSlide(2)" aria-label="Show review 3"></button>
+                </div>
+            </div>
+
+            <!-- Clients Logos Carousel -->
+            <div class="clients-logos-carousel">
+                <img src="../resources/logos/clients/" alt="Client 1" class="client-logo">
+                <img src="../resources/logos/clients/" alt="Client 2" class="client-logo">
+                <img src="../resources/logos/clients/" alt="Client 3" class="client-logo">
+                <img src="../resources/logos/clients/" alt="Client 4" class="client-logo">
+                <img src="../resources/logos/clients/" alt="Client 5" class="client-logo">
+            </div>
+    </section>
+
+    <!-- Who We Are Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Who we are</h2>
+            <p class="section-subtitle">Your Trusted Partner in IT & Low Voltage Solutions</p>
+            
+            <div class="who-we-are">
+                <div>
+                    <h3>We are the decisive factor behind your success</h3>
+                </div>
+                <div>
+                    <p>At our core, we are a team of dedicated professionals committed to delivering top-tier IT managed services and low voltage solutions. We cater to businesses of all sizes, ensuring seamless technology integration, robust network infrastructure, efficient project management. Our expertise extends to the design, installation, and maintenance of low voltage systems, including structured cabling, security systems, and audiovisual setups.</p>
+                    
+                    <p>We pride ourselves on our customer-centric approach, customizing our services to meet each client's unique requirements. With a focus on reliability and innovation, we strive to empower businesses with the tools and support they need to succeed.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Leadership Team Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Leadership Team</h2>
+            
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="team-photo">GW</div>
+                    <h4>Gabrielle Winn</h4>
+                    <p>CEO</p>
+                </div>
+                <div class="team-member">
+                    <div class="team-photo">MP</div>
+                    <h4>Mario Palmer</h4>
+                    <p>Managing Partner</p>
+                </div>
+                <div class="team-member">
+                    <div class="team-photo">MP</div>
+                    <h4>Mario Palmer</h4>
+                    <p>Managing Partner</p>
+                </div>
+                <div class="team-member">
+                    <div class="team-photo">KW</div>
+                    <h4>Kelly Williams</h4>
+                    <p>Marketing Strategist</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Us Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Why Us ?</h2>
+            <h3 style="margin-bottom: 2rem; color: #b0c4de;">Why Choose Us?</h3>
+            
+            <div class="why-us-content">
+                <p>Choosing us means partnering with a team that prioritizes your success. Our IT managed services are designed to keep your operations running smoothly, with proactive monitoring, rapid issue resolution, and scalable solutions that grow with your business. We bring the same level of expertise and dedication to our low voltage services, ensuring your infrastructure is not only reliable but also future-ready. What sets us apart is our commitment to personalized service; we take time to understand your specific challenges and goals, delivering solutions that are not just effective, but also aligned with your business objectives. Our experienced professionals bring years of industry knowledge and a passion for innovation, ensuring you get both cutting-edge technology and infrastructure.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h2>Let's talk</h2>
+                    <div class="contact-details">
+                        <p>t: +1 (813) 382-7112</p>
+                        <p>e: info@networkconcepts.com</p>
+                        <p>a: 5059 W Laurel St. Ste. 108 | Tampa, FL 33607</p>
+                    </div>
+                    
+                    <div class="social-icons">
+                        <div class="social-icon">📧</div>
+                        <div class="social-icon">🐦</div>
+                        <div class="social-icon">📷</div>
+                        <div class="social-icon">📺</div>
+                        <div class="social-icon">💬</div>
+                        <div class="social-icon">📞</div>
+                        <div class="social-icon">📧</div>
+                    </div>
+                </div>
+                
+                <div class="tools-section">
+                    <h3>Providing the tools for your success</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>Copyright © 2025 Network Concepts</p>
+            <p>Powered by <strong>BLUESEF</strong></p>
+            <p>Owned by <strong>Mojo</strong></p>
+        </div>
+    </footer>
+
+    
+</body>
+</html>
