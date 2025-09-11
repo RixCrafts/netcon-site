@@ -42,3 +42,10 @@
     filter: drop-shadow(0 2px 8px rgba(200, 82, 255, 0.35)) drop-shadow(0 4px 16px rgba(85, 48, 102, 0.18));
     max-height: 5rem;
 }
+
+@media (max-width: 768px) {
+    .tool-logos {
+        flex-direction: column;
+        gap: 2rem;
+    }
+}
