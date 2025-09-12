@@ -23,3 +23,16 @@
 ## Resources used on the website - Atributtions
 
 - index > hero section > double quotes: `<a href="https://www.flaticon.com/free-icons/quotation-marks" title="quotation-marks icons">Quotation-marks icons created by ArtBit - Flaticon</a>`
+
+## ToDos
+
+- Link the services on the footer to each specific service container on the 'Our Services' page
+- Fully interactive contact information
+  - Implement form submission
+  - Implement form submission feedback alert
+  - Made the email address clickable everywhere
+  - Made the phone number clickable everywhere
+- Add content to 'Our Services' hero section  
+- Add content to 'Tech Stack' page hero section
+- Add the logo to 'Tech Stacl' page hero section
+- Made the name on the nav bar clickable to go home
