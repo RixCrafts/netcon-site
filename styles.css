@@ -905,6 +905,26 @@ nav {
     font-size: 1.1rem;
 }
 
+.contact-details a {
+    color: #b0c4de;
+    text-decoration: none;
+    padding: .25rem;
+    border-radius: 5px;
+    border: 2px solid #0097e6;
+}
+
+.contact-details a::before{
+    content: '';
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-bottom: 12px solid #00a8ff;
+    margin-right: 8px;
+    vertical-align: middle;
+}
+
 .social-icons {
     display: flex;
     justify-content: center;
