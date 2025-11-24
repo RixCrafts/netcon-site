@@ -905,24 +905,38 @@ nav {
     font-size: 1.1rem;
 }
 
-.contact-details a {
+.contact-details div {
     color: #b0c4de;
     text-decoration: none;
     padding: .25rem;
     border-radius: 5px;
-    border: 2px solid #0097e6;
+    /* border: 1.5px solid #0097e6; */
+    margin: .5rem 0;
 }
 
-.contact-details a::before{
+.contact-details div::before{
     content: '';
     display: inline-block;
     width: 0;
     height: 0;
-    border-left: 7px solid transparent;
-    border-right: 7px solid transparent;
-    border-bottom: 12px solid #00a8ff;
+    border-top: 7px solid transparent !important;
+    border-bottom: 7px solid transparent !important;
+    border-left: 12px solid #00a8ff !important;
+    border-right: 0 !important;
     margin-right: 8px;
     vertical-align: middle;
+}
+
+.contact-details a{
+    text-decoration: none;
+    color: inherit;
+}
+
+.contact-details .clickable:hover{
+    background: rgba(0, 168, 255, 0.2);
+    cursor: pointer;
+    transform: translateX(5px);
+    transition: all 0.3s;
 }
 
 .social-icons {

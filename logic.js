@@ -134,3 +134,90 @@ document.querySelectorAll('.nav-links a').forEach(link => {
         navLinks.classList.remove('active');
     });
 });
+
+// Review slider logic
+document.addEventListener('DOMContentLoaded', () => {
+    const slider = document.querySelector('.client-reviews-slider');
+    if (!slider) return;
+    const NAV_CLASS = 'review-nav-container';
+
+    function createOrClearNav() {
+        let nav = slider.querySelector(`.${NAV_CLASS}`);
+        if (!nav) {
+            nav = document.createElement('div');
+            nav.className = NAV_CLASS;
+            slider.appendChild(nav);
+        }
+        nav.innerHTML = '';
+        return nav;
+    }
+
+    function regenNav() {
+        const slides = Array.from(slider.querySelectorAll('.review-slide'));
+        if (!slides.length) return;
+        const nav = createOrClearNav();
+
+        slides.forEach((_, i) => {
+            const btn = document.createElement('button');
+            btn.className = 'review-nav-btn';
+            btn.type = 'button';
+            btn.setAttribute('aria-label', `Show review ${i + 1}`);
+            btn.addEventListener('click', () => showReviewSlide(i));
+            nav.appendChild(btn);
+        });
+
+        const initial = slides.findIndex(s => s.classList.contains('active'));
+        setActive(initial >= 0 ? initial : 0);
+    }
+
+    function setActive(index) {
+        const slides = Array.from(slider.querySelectorAll('.review-slide'));
+        const buttons = Array.from(slider.querySelectorAll(`.${NAV_CLASS} .review-nav-btn`));
+        slides.forEach((s, i) => s.classList.toggle('active', i === index));
+        buttons.forEach((b, i) => b.classList.toggle('active', i === index));
+    }
+
+    // Expose showReviewSlide without clobbering existing implementation.
+    if (typeof window.showReviewSlide !== 'function') {
+        window.showReviewSlide = function (index) {
+            const slides = slider.querySelectorAll('.review-slide');
+            if (index < 0 || index >= slides.length) return;
+            setActive(index);
+        };
+    } else {
+        const original = window.showReviewSlide;
+        window.showReviewSlide = function (index) {
+            original(index);
+            setActive(index);
+        };
+    }
+
+    // Initial generation
+    regenNav();
+
+    // Watch for slides being added/removed and regenerate nav automatically
+    const mo = new MutationObserver(() => regenNav());
+    mo.observe(slider, { childList: true, subtree: true });
+});
+
+// ------------------------------------------------- TESTING
+// CTA phone number insertion 
+(function () {
+    const el = document.getElementById('cta_phone-number');
+    if (!el) return;
+    const telNumber = '+18132827117';
+    const telHref = 'tel:' + telNumber;
+    const isTouchDevice = ('ontouchstart' in window) || navigator.maxTouchPoints > 0 || navigator.msMaxTouchPoints > 0;
+
+    if (isTouchDevice) {
+        const a = document.createElement('a');
+        a.href = telHref;
+        a.innerText = el.innerText || el.textContent;
+        a.id = el.id;
+        a.className = el.className || '';
+        el.parentNode.replaceChild(a, el);
+    } else {
+        el.style.cursor = 'pointer';
+        el.addEventListener('click', () => { window.location.href = telHref; });
+    }
+})();
