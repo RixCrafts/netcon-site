@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <script src="logic.js" defer></script>
+    <title>Our Services - Network Concepts</title>
+    <!-- <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #0a1628 0%, #1e3a5f 50%, #0a1628 100%);
+            color: white;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Animated Network Background */
+        .network-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.8;
+        }
+
+        .network-node {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background: #00a8ff;
+            border-radius: 50%;
+            box-shadow: 0 0 15px #00a8ff, 0 0 30px #00a8ff;
+            animation: pulse 3s infinite alternate;
+        }
+
+        .network-line {
+            position: absolute;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #00a8ff, transparent);
+            animation: flow 4s infinite;
+            opacity: 0.6;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 0.4; transform: scale(1); }
+            100% { opacity: 1; transform: scale(1.3); }
+        }
+
+        @keyframes flow {
+            0% { opacity: 0; }
+            50% { opacity: 0.8; }
+            100% { opacity: 0; }
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 22, 40, 0.9);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .logo::before {
+            content: '';
+            width: 0;
+            height: 0;
+            border-left: 15px solid transparent;
+            border-right: 15px solid transparent;
+            border-bottom: 25px solid #00a8ff;
+            margin-right: 10px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #00a8ff;
+        }
+
+        .nav-links .active {
+            color: #00a8ff;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 300;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #00a8ff;
+            text-align: center;
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(3, 200px);
+            gap: 1rem;
+            max-width: 800px;
+            margin: 3rem auto;
+            padding: 2rem;
+        }
+
+        .service-card {
+            position: relative;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 20px 40px rgba(0, 168, 255, 0.3);
+            border-color: #00a8ff;
+        }
+
+        .service-card.large {
+            grid-column: span 2;
+        }
+
+        .service-card.tall {
+            grid-row: span 2;
+        }
+
+        .service-content {
+            text-align: center;
+            padding: 1rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .service-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .service-arrow {
+            position: absolute;
+            bottom: 15px;
+            right: 15px;
+            color: #00a8ff;
+            font-size: 1.2rem;
+        }
+
+        .service-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-size: cover;
+            background-position: center;
+            opacity: 0.3;
+            z-index: 1;
+        }
+
+        /* Specific service card layouts */
+        .service-card:nth-child(1) { grid-column: 1 / 3; }
+        .service-card:nth-child(2) { grid-column: 3; }
+        .service-card:nth-child(3) { grid-column: 1; grid-row: 2; }
+        .service-card:nth-child(4) { grid-column: 2 / 4; grid-row: 2; }
+        .service-card:nth-child(5) { grid-column: 1 / 3; grid-row: 3; }
+        .service-card:nth-child(6) { grid-column: 3; grid-row: 3; }
+
+        /* Modal/Popup Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(5px);
+            animation: fadeIn 0.3s ease-out;
+        }
+
+        .modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background: linear-gradient(135deg, rgba(10, 22, 40, 0.95), rgba(30, 58, 95, 0.95));
+            padding: 3rem;
+            border-radius: 20px;
+            max-width: 600px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+            border: 2px solid #00a8ff;
+            box-shadow: 0 20px 60px rgba(0, 168, 255, 0.3);
+            animation: slideIn 0.3s ease-out;
+            position: relative;
+        }
+
+        .modal-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .modal-icon {
+            font-size: 3rem;
+            margin-right: 1rem;
+            color: #00a8ff;
+        }
+
+        .modal-title {
+            font-size: 2rem;
+            color: white;
+        }
+
+        .modal-description {
+            color: #b0c4de;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .modal-features {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .modal-features li {
+            padding: 0.5rem 0;
+            color: #b0c4de;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .modal-features li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: #00a8ff;
+            font-weight: bold;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            color: #00a8ff;
+            font-size: 2rem;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .close-modal:hover {
+            color: white;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background: rgba(0, 168, 255, 0.1);
+            padding: 5rem 0;
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .contact-info h2 {
+            font-size: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .contact-details {
+            margin-bottom: 2rem;
+        }
+
+        .contact-details p {
+            margin-bottom: 0.5rem;
+            color: #b0c4de;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s;
+            text-decoration: none;
+            color: white;
+        }
+
+        .social-icon:hover {
+            background: #00a8ff;
+        }
+
+        .tools-section {
+            text-align: right;
+        }
+
+        .tools-section h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            background: rgba(0, 0, 0, 0.3);
+            color: #b0c4de;
+            font-size: 0.9rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-50px) scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+                grid-template-rows: repeat(6, 200px);
+            }
+            
+            .service-card:nth-child(1),
+            .service-card:nth-child(2),
+            .service-card:nth-child(3),
+            .service-card:nth-child(4),
+            .service-card:nth-child(5),
+            .service-card:nth-child(6) {
+                grid-column: 1;
+                grid-row: auto;
+            }
+            
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .modal-content {
+                padding: 2rem;
+            }
+        }
+    </style> -->
+</head>
+<body>
+    <!-- Network Background -->
+    <div class="network-bg" id="networkBg"></div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">Network Concepts</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <!-- <li><a href="our-services.html" class="active">Our Services</a></li> -->
+                <li><a href="tech-stack.html">Tech Stack</a></li>
+                <li><a href="about-us.html">About Us</a></li>
+                <li><a href="#blog">Blog</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Our Services</h1>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Connecting clients</h2>
+            
+            <div class="services-grid">
+                <div class="service-card" data-service="innovative">
+                    <div class="service-content">
+                        <span class="service-icon">💡</span>
+                        <div class="service-title">Innovative strategies</div>
+                    </div>
+                    <span class="service-arrow">→</span>
+                </div>
+                
+                <div class="service-card" data-service="insights">
+                    <div class="service-content">
+                        <span class="service-icon">⚙️</span>
+                    </div>
+                    <span class="service-arrow">→</span>
+                </div>
+                
+                <div class="service-card" data-service="analytics">
+                    <div class="service-content">
+                        <span class="service-icon">📊</span>
+                    </div>
+                    <span class="service-arrow">→</span>
+                </div>
+                
+                <div class="service-card" data-service="strategic">
+                    <div class="service-content">
+                        <div class="service-title">Strategic insights</div>
+                    </div>
+                    <span class="service-arrow">→</span>
+                </div>
+                
+                <div class="service-card" data-service="personalized">
+                    <div class="service-content">
+                        <div class="service-title">Personalized tactics</div>
+                    </div>
+                    <span class="service-arrow">→</span>
+                </div>
+                
+                <div class="service-card" data-service="results">
+                    <div class="service-content">
+                        <span class="service-icon">🤖</span>
+                    </div>
+                    <span class="service-arrow">→</span>
+                </div>
+                
+                <div class="service-card" data-service="solutions">
+                    <div class="service-content">
+                        <span class="service-icon">💻</span>
+                    </div>
+                    <span class="service-arrow">→</span>
+                </div>
+                
+                <div class="service-card" data-service="oriented">
+                    <div class="service-content">
+                        <div class="service-title">Results-Oriented Solutions</div>
+                    </div>
+                    <span class="service-arrow">→</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h2>Let's talk</h2>
+                    <div class="contact-details">
+                        <p>t: +1 (813) 382-7112</p>
+                        <p>e: info@networkconcepts.com</p>
+                        <p>a: 5059 W Laurel St. Ste. 108 | Tampa, FL 33607</p>
+                    </div>
+                    
+                    <div class="social-icons">
+                        <a href="#" class="social-icon">in</a>
+                        <a href="#" class="social-icon">𝕏</a>
+                        <a href="#" class="social-icon">📷</a>
+                        <a href="#" class="social-icon">📺</a>
+                        <a href="#" class="social-icon">💬</a>
+                        <a href="#" class="social-icon">📞</a>
+                        <a href="#" class="social-icon">📧</a>
+                    </div>
+                </div>
+                
+                <div class="tools-section">
+                    <h3>Providing the tools for your success</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>Copyright © 2025 Network Concepts</p>
+            <p>Powered by <strong>BLUESEF</strong></p>
+            <p>Owned by <strong>Mojo</strong></p>
+        </div>
+    </footer>
+
+    <!-- Modal Templates -->
+    <div id="serviceModal" class="modal">
+        <div class="modal-content">
+            <button class="close-modal">&times;</button>
+            <div class="modal-header">
+                <span class="modal-icon" id="modalIcon"></span>
+                <h3 class="modal-title" id="modalTitle"></h3>
+            </div>
+            <div class="modal-description" id="modalDescription"></div>
+            <ul class="modal-features" id="modalFeatures"></ul>
+        </div>
+    </div>
+
+    <!-- <script>
+        // Service data
+        const servicesData = {
+            innovative: {
+                icon: '💡',
+                title: 'Innovative Strategies',
+                description: 'We develop cutting-edge approaches to transform your IT infrastructure and low voltage systems. Our innovative strategies are designed to future-proof your business and keep you ahead of the competition.',
+                features: [
+                    'Custom technology roadmaps tailored to your business goals',
+                    'Implementation of emerging technologies and best practices',
+                    'Strategic planning for scalable infrastructure growth',
+                    'Integration of AI and automation solutions',
+                    'Future-ready architecture design'
+                ]
+            },
+            insights: {
+                icon: '⚙️',
+                title: 'Technical Insights',
+                description: 'Gain deep technical insights into your systems performance, security vulnerabilities, and optimization opportunities. Our expert analysis helps you make informed decisions about your technology investments.',
+                features: [
+                    'Comprehensive system performance analysis',
+                    'Security vulnerability assessments',
+                    'Network optimization recommendations',
+                    'Cost-benefit analysis for technology upgrades',
+                    'Detailed reporting and actionable insights'
+                ]
+            },
+            analytics: {
+                icon: '📊',
+                title: 'Data Analytics',
+                description: 'Transform your data into actionable intelligence with our advanced analytics solutions. We help you understand patterns, predict trends, and make data-driven decisions that drive business growth.',
+                features: [
+                    'Real-time monitoring and reporting dashboards',
+                    'Predictive analytics for system maintenance',
+                    'Performance metrics and KPI tracking',
+                    'Business intelligence integration',
+                    'Custom analytics solutions'
+                ]
+            },
+            strategic: {
+                icon: '🎯',
+                title: 'Strategic Insights',
+                description: 'Our strategic consulting services provide you with the insights needed to align your technology initiatives with your business objectives. We help you navigate complex decisions and prioritize investments.',
+                features: [
+                    'Technology assessment and gap analysis',
+                    'Strategic planning and roadmap development',
+                    'Risk assessment and mitigation strategies',
+                    'Vendor evaluation and selection guidance',
+                    'ROI optimization for technology investments'
+                ]
+            },
+            personalized: {
+                icon: '🎨',
+                title: 'Personalized Tactics',
+                description: 'Every business is unique, and so are our solutions. We develop personalized tactics that address your specific challenges, industry requirements, and organizational goals.',
+                features: [
+                    'Customized solution design and implementation',
+                    'Industry-specific compliance and standards',
+                    'Tailored training and knowledge transfer',
+                    'Flexible service delivery models',
+                    'Dedicated account management and support'
+                ]
+            },
+            results: {
+                icon: '🤖',
+                title: 'AI-Powered Solutions',
+                description: 'Leverage the power of artificial intelligence to automate processes, enhance decision-making, and improve operational efficiency. Our AI solutions are designed to integrate seamlessly with your existing systems.',
+                features: [
+                    'Intelligent automation and workflow optimization',
+                    'AI-powered monitoring and alerting systems',
+                    'Machine learning for predictive maintenance',
+                    'Natural language processing for support automation',
+                    'Computer vision for security and surveillance'
+                ]
+            },
+            solutions: {
+                icon: '💻',
+                title: 'Technology Solutions',
+                description: 'Comprehensive technology solutions that encompass everything from infrastructure design to implementation and ongoing support. We provide end-to-end services that ensure your technology works for you.',
+                features: [
+                    'Infrastructure design and implementation',
+                    'Cloud migration and hybrid solutions',
+                    'Network security and compliance',
+                    'System integration and API development',
+                    '24/7 monitoring and technical support'
+                ]
+            },
+            oriented: {
+                icon: '🎯',
+                title: 'Results-Oriented Solutions',
+                description: 'We focus on delivering measurable results that directly impact your bottom line. Our results-oriented approach ensures that every solution we implement contributes to your business success.',
+                features: [
+                    'Measurable KPIs and success metrics',
+                    'Regular performance reviews and optimization',
+                    'Continuous improvement methodologies',
+                    'ROI tracking and reporting',
+                    'Success-based service level agreements'
+                ]
+            }
+        };
+
+        // Create animated network background
+        function createNetworkBackground() {
+            const networkBg = document.getElementById('networkBg');
+            const nodeCount = 60;
+            
+            // Create nodes
+            for (let i = 0; i < nodeCount; i++) {
+                const node = document.createElement('div');
+                node.className = 'network-node';
+                node.style.left = Math.random() * 100 + '%';
+                node.style.top = Math.random() * 100 + '%';
+                node.style.animationDelay = Math.random() * 3 + 's';
+                networkBg.appendChild(node);
+            }
+            
+            // Create connecting lines
+            for (let i = 0; i < 40; i++) {
+                const line = document.createElement('div');
+                line.className = 'network-line';
+                line.style.left = Math.random() * 100 + '%';
+                line.style.top = Math.random() * 100 + '%';
+                line.style.width = Math.random() * 300 + 100 + 'px';
+                line.style.transform = `rotate(${Math.random() * 360}deg)`;
+                line.style.animationDelay = Math.random() * 4 + 's';
+                networkBg.appendChild(line);
+            }
+        }
+
+        // Modal functionality
+        const modal = document.getElementById('serviceModal');
+        const modalIcon = document.getElementById('modalIcon');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalDescription = document.getElementById('modalDescription');
+        const modalFeatures = document.getElementById('modalFeatures');
+        const closeBtn = document.querySelector('.close-modal');
+
+        // Open modal
+        function openModal(serviceKey) {
+            const service = servicesData[serviceKey];
+            if (service) {
+                modalIcon.textContent = service.icon;
+                modalTitle.textContent = service.title;
+                modalDescription.textContent = service.description;
+                
+                modalFeatures.innerHTML = '';
+                service.features.forEach(feature => {
+                    const li = document.createElement('li');
+                    li.textContent = feature;
+                    modalFeatures.appendChild(li);
+                });
+                
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        // Close modal
+        function closeModal() {
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Event listeners for service cards
+        document.querySelectorAll('.service-card').forEach(card => {
+            card.addEventListener('click', () => {
+                const serviceKey = card.getAttribute('data-service');
+                openModal(serviceKey);
+            });
+        });
+
+        // Close modal events
+        closeBtn.addEventListener('click', closeModal);
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modal.classList.contains('active')) {
+                closeModal();
+            }
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Parallax effect for hero section
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero');
+            if (hero) {
+                hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+            }
+        });
+
+        // Initialize network background
+        createNetworkBackground();
+
+        // Add intersection observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 1s ease-out forwards';
+                }
+            });
+        }, observerOptions);
+
+        // Observe sections for scroll animations
+        document.querySelectorAll('.section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Animate service cards on scroll
+        document.querySelectorAll('.service-card').forEach((card, index) => {
+            card.style.animationDelay = `${index * 0.1}s`;
+            observer.observe(card);
+        });
+    </script> -->
+</body>
+</html>
