@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Network Concepts</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="about-us.css">
+    <script src="../logic.js" defer></script>
+    <!-- <script src="about-us.js" defer></script> -->
+
+</head>
+
+<body class="about-us-page">
+    <!-- Network Background -->
+    <div class="network-bg" id="networkBg"></div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">
+                <img class="navbar-logo" src="../resources/logos/NCLogo-512x512.png" alt="Network Concern Logo">
+                <span>Network Concern</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="our-services.html">Our Services</a></li>
+                <li><a href="tech-stack.html">Tech Stack</a></li>
+                <li><a href="#contact-cta">Contact Us</a></li>
+                <!-- <li><a href="#blog">Blog</a></li> -->
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-logo">
+                <div class="hero-logo-icon">
+                    <img src="../resources/logos/NCLogo-512x512.png" alt="Network Concern Logo">
+                </div>
+                <div>
+                    <h1>About Us</h1>
+                    <p class="tagline">Business Technology Partners</p>
+                </div>
+            </div>
+        </div>
+        <!-- Client Reviews Slider -->
+        <div class="client-reviews-slider">
+            <div class="review-slide active" id="review-slide-0">
+                <div class="review-content">
+                    <div class="review-quote">"</div>
+                    <p class="review-text">
+                        Network Concern's team delivered a seamless cloud migration for us. Their expertise and
+                        support were outstanding!
+                    </p>
+                    <div class="review-author">Alex Morgan</div>
+                    <div class="review-company">CTO, BluePeak Logistics</div>
+                </div>
+            </div>
+            <div class="review-slide" id="review-slide-1">
+                <div class="review-content">
+                    <div class="review-quote">"</div>
+                    <p class="review-text">
+                        Their cybersecurity solutions gave us peace of mind. We trust Network Concern to keep our
+                        data safe.
+                    </p>
+                    <div class="review-author">Priya Desai</div>
+                    <div class="review-company">IT Manager, GreenLeaf Health</div>
+                </div>
+            </div>
+            <div class="review-slide" id="review-slide-2">
+                <div class="review-content">
+                    <div class="review-quote">"</div>
+                    <p class="review-text">
+                        The custom software they built for us transformed our workflow. Highly recommended!
+                    </p>
+                    <div class="review-author">Jordan Lee</div>
+                    <div class="review-company">Operations Director, Nova Retail</div>
+                </div>
+            </div>
+            <!-- Slider Controls -->
+            <div class="review-nav-container">
+                <button class="review-nav-btn active" onclick="showReviewSlide(0)" aria-label="Show review 1"></button>
+                <button class="review-nav-btn" onclick="showReviewSlide(1)" aria-label="Show review 2"></button>
+                <button class="review-nav-btn" onclick="showReviewSlide(2)" aria-label="Show review 3"></button>
+            </div>
+        </div>
+
+        <!-- Clients Logos Carousel -->
+        <div class="clients-logos-carousel">
+            <img src="../resources/logos/clients/" alt="Reviewer Logo 1" class="client-logo">
+            <img src="../resources/logos/clients/" alt="Reviewer Logo 2" class="client-logo">
+            <img src="../resources/logos/clients/" alt="Reviewer Logo 3" class="client-logo">
+        </div>
+    </section>
+
+    <!-- Who We Are Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Who we are</h2>
+            <p class="section-subtitle">Your Trusted Partner in IT & Low Voltage Solutions</p>
+
+            <div class="who-we-are">
+                <div>
+                    <h3>We are the decisive factor behind your success</h3>
+                </div>
+                <div>
+                    <p>At our core, we are a team of dedicated professionals committed to delivering top-tier IT managed
+                        services and low voltage solutions. We cater to businesses of all sizes, ensuring seamless
+                        technology integration, robust network infrastructure, efficient project management. Our
+                        expertise extends to the design, installation, and maintenance of low voltage systems, including
+                        structured cabling, security systems, and audiovisual setups.</p>
+
+                    <p>We pride ourselves on our customer-centric approach, customizing our services to meet each
+                        client's unique requirements. With a focus on reliability and innovation, we strive to empower
+                        businesses with the tools and support they need to succeed.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Leadership Team Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Leadership Team</h2>
+
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="team-photo">LD</div>
+                    <h4>Lawrence <br>Dewberry</h4>
+                    <p>???</p>
+                </div>
+                <div class="team-member">
+                    <div class="team-photo">MB</div>
+                    <h4>Michael <br>Brenna</h4>
+                    <p>???</p>
+                </div>
+                <div class="team-member">
+                    <div class="team-photo">JD</div>
+                    <h4>James <br>Dye</h4>
+                    <p>IT Services Manager</p>
+                </div>
+                <div class="team-member">
+                    <div class="team-photo">EG</div>
+                    <h4>Eli <br>Garcia</h4>
+                    <p>Field Services Manager</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Us Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Why Us ?</h2>
+            <h3 style="margin-bottom: 2rem; color: #b0c4de;">Why Choose Us?</h3>
+
+            <div class="why-us-content">
+                <p>Choosing us means partnering with a team that prioritizes your success. Our IT managed services are
+                    designed to keep your operations running smoothly, with proactive monitoring, rapid issue
+                    resolution, and scalable solutions that grow with your business. We bring the same level of
+                    expertise and dedication to our low voltage services, ensuring your infrastructure is not only
+                    reliable but also future-ready. What sets us apart is our commitment to personalized service; we
+                    take time to understand your specific challenges and goals, delivering solutions that are not just
+                    effective, but also aligned with your business objectives. Our experienced professionals bring years
+                    of industry knowledge and a passion for innovation, ensuring you get both cutting-edge technology
+                    and infrastructure.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & CTA -->
+    <section class="section contact-section">
+        <div class="container">
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-header">
+                        <h2>Ready to Transform Your Business?</h2>
+                        <p>Let's discuss how we can help you achieve your technology goals. Our team is ready to provide
+                            you
+                            with the solutions you need to succeed.</p>
+                    </div>
+                    <!-- TODO: Make this interactive -->
+                    <div class="contact-details">
+                        <p>📧 info@networkconcern.com</p>
+                        <p>📞 +1 (813) 282-7117</p>
+                        <p>📍 Serving businesses nationwide</p>
+                    </div>
+
+                    <!-- TODO: Replace the names with icons -->
+                    <!-- TODO: Add social media links -->
+                    <div class="social-icons">
+                        <a href="#" class="social-icon">LinkedIn</a>
+                        <a href="#" class="social-icon">Twitter/X</a>
+                        <a href="#" class="social-icon">Instagram</a>
+                        <a href="#" class="social-icon">YouTube</a>
+                        <a href="#" class="contact-icon">Text us on WhatsApp</a>
+                        <a href="#" class="contact-icon">Give us a call</a>
+                        <a href="#" class="contact-icon">Drop us an Email</a>
+                        <a href="#" class="contact-icon">Send us a Message on 3CX</a>
+                    </div>
+
+                    <!-- TODO: Replace the map with an icon that when clicked will the open the map as a popup -->
+                    <div class="map-container">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3524.2223471239167!2d-82.53132892384093!3d27.956475976040586!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88c2c2fc97e001eb%3A0xc7a3b857108b0df8!2sNetwork%20Concern!5e0!3m2!1sen!2sus!4v1754939323826!5m2!1sen!2sus"
+                            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+
+                    <!-- TODO: Make this form to slide down when scrolling to match the map -->
+                    <!-- TODO: replace red border on the form with blue -->
+                    <!-- Contact Form -->
+                    <div class="contact-cta" id="contact-cta">
+                        <form class="contact-form" action="#" method="post" autocomplete="on">
+                            <div class="form-group">
+                                <label for="full-name">Full Name</label>
+                                <input type="text" id="full-name" name="full-name" required
+                                    placeholder="Your full name">
+                            </div>
+                            <div class="form-group">
+                                <label for="company-name">Company Name</label>
+                                <input type="text" id="company-name" name="company-name" required
+                                    placeholder="Your company name">
+                            </div>
+                            <div class="form-group">
+                                <label for="email-address">Email Address</label>
+                                <input type="email" id="email-address" name="email-address" required
+                                    placeholder="you@email.com">
+                            </div>
+                            <div class="form-group">
+                                <label for="phone-number">Phone Number</label>
+                                <input type="tel" id="phone-number" name="phone-number" required
+                                    placeholder="(555) 123-4567">
+                            </div>
+                            <div class="form-group">
+                                <label for="description">How can we help?</label>
+                                <textarea id="description" name="description" rows="4" required
+                                    placeholder="Describe your needs or project"></textarea>
+                            </div>
+                            <button type="submit" class="cta-button">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Network Concern</h3>
+                    <p>Your trusted partner in business technology solutions.</p>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Services</h4>
+                    <ul id="footer-services-links">
+                        <li><a href="our-services.html">IT Consulting</a></li>
+                        <li><a href="our-services.html">Cybersecurity</a></li>
+                        <li><a href="our-services.html">Cloud Solutions</a></li>
+                        <li><a href="our-services.html">Managed IT Services</a></li>
+                        <li><a href="our-services.html">IT Support</a></li>
+                        <li><a href="our-services.html">Network Installation</a></li>
+                        <li><a href="our-services.html">Network Management</a></li>
+                        <li><a href="our-services.html">Network Security</a></li>
+                        <li><a href="our-services.html">Data Backup & Recovery</a></li>
+                        <li><a href="our-services.html">Disaster Recovery</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="our-services.html">Our Services</a></li>
+                        <li><a href="tech-stack.html">Tech Stack</a></li>
+                        <li><a href="about-us.html">About Us</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="#blog" style="opacity: .25; cursor: not-allowed;">Blog - Coming Soon -</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>info@networkconcern.com</p>
+                    <p>+1 (813) 282-7117</p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 Network Concern. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

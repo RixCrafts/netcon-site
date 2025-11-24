@@ -52,10 +52,12 @@ window.addEventListener('scroll', () => {
 
 // Parallax effect for hero section
 window.addEventListener('scroll', () => {
-    const scrolled = window.pageYOffset;
-    const hero = document.querySelector('.hero');
-    if (hero) {
-        hero.style.transform = `translateY(${scrolled * 0.3}px)`;
+    if (window.innerWidth > 768) {
+        const scrolled = window.pageYOffset;
+        const hero = document.querySelector('.hero');
+        if (hero) {
+            hero.style.transform = `translateY(${scrolled * 0.3}px)`;
+        }
     }
 });
 
@@ -95,4 +97,40 @@ document.querySelectorAll('.service-item').forEach((item, index) => {
 
     if (content) content.style.animationDelay = `${index * 0.1}s`;
     if (tags) tags.style.animationDelay = `${index * 0.1 + 0.2}s`;
+});
+
+// Simple slider logic for reviews
+const slides = document.querySelectorAll('.review-slide');
+const navBtns = document.querySelectorAll('.review-nav-btn');
+let currentSlide = 0;
+function showReviewSlide(idx) {
+    slides.forEach((slide, i) => {
+        slide.classList.toggle('active', i === idx);
+        if (navBtns[i]) navBtns[i].classList.toggle('active', i === idx);
+    });
+    currentSlide = idx;
+}
+// Auto-advance every 7 seconds
+setInterval(() => {
+    let next = (currentSlide + 1) % slides.length;
+    showReviewSlide(next);
+}, 7000);
+// Initialize
+showReviewSlide(0);
+
+// Hamburger menu toggle
+const hamburger = document.querySelector('.hamburger');
+const navLinks = document.querySelector('.nav-links');
+
+hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    navLinks.classList.toggle('active');
+});
+
+// Close menu on link click
+document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        navLinks.classList.remove('active');
+    });
 });

@@ -1,0 +1,33 @@
+.clients-logos-carousel{
+    grid-column: 1 / span 2;
+}
+
+.hero{
+    grid-template-columns: 1fr .75fr;
+}
+
+.hero-logo{
+    align-items: flex-end;
+}
+
+.hero-logo h1{
+    font-size: 4.5rem;
+}
+
+@media (max-width: 992px) {
+    .hero {
+        grid-template-columns: 1fr;
+    }
+
+    .clients-logos-carousel {
+        grid-column: 1;
+    }
+
+    .hero-logo{
+        align-items: center;
+    }
+
+    .why-us-content p{
+        font-size: 1.125rem;
+    }
+}

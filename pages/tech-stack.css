@@ -1,0 +1,51 @@
+.tool-box {
+    background: rgba(20, 30, 60, 0.7);
+    border-radius: 18px;
+    border: 1.5px solid rgba(60, 120, 255, 0.35);
+    padding: 32px 24px;
+    margin-top: 24px;
+    position: relative;
+    overflow: hidden;
+}
+
+.tool-box::before {
+    content: "";
+    position: absolute;
+    inset: -4px;
+    border-radius: 22px;
+    pointer-events: none;
+    z-index: 1;
+    background: conic-gradient(from var(--angle, 0deg),
+            rgba(60, 120, 255, 0.45) 0deg 40deg,
+            rgba(60, 120, 255, 0.18) 40deg 120deg,
+            rgba(60, 120, 255, 0.35) 120deg 180deg,
+            rgba(60, 120, 255, 0.18) 180deg 320deg,
+            rgba(60, 120, 255, 0.45) 320deg 360deg);
+    box-shadow: 0 0 24px 6px rgba(60, 120, 255, 0.35);
+    transition: box-shadow 0.3s;
+}
+
+.tool-description{
+    font-size: 24px;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+}
+
+.tool-logos{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+.tool-logos > img{
+    filter: drop-shadow(0 2px 8px rgba(200, 82, 255, 0.35)) drop-shadow(0 4px 16px rgba(85, 48, 102, 0.18));
+    max-height: 5rem;
+}
+
+@media (max-width: 768px) {
+    .tool-logos {
+        flex-direction: column;
+        gap: 2rem;
+    }
+}
