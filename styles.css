@@ -86,6 +86,7 @@ nav {
     top: 0;
     width: 100%;
     background: rgba(10, 22, 40, 0.8);
+    -webkit-backdrop-filter: blur(20px);
     backdrop-filter: blur(20px);
     z-index: 1000;
     padding: 1rem 0;
@@ -105,6 +106,7 @@ nav {
     align-items: center;
     font-size: 1.5rem;
     font-weight: bold;
+    cursor: pointer;
 }
 
 .navbar-logo{
@@ -418,6 +420,7 @@ nav {
     background: rgba(255, 255, 255, 0.05);
     border-radius: 15px;
     padding: 2rem;
+    -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.1);
     transition: transform 0.3s, box-shadow 0.3s;
@@ -861,6 +864,7 @@ nav {
     color: #0097e6;
 }
 
+
 /* ====== Contact Section ====== */
 .contact-section {
     background: linear-gradient(135deg, rgba(10, 22, 40, 0.9), rgba(45, 27, 105, 0.9));
@@ -941,7 +945,7 @@ nav {
 
 .social-icons {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     gap: 1rem;
     margin-top: 2rem;
     grid-column: 1;
@@ -949,32 +953,52 @@ nav {
     flex-wrap: wrap;
 }
 
+.social-icons > a{
+    flex-grow: 1;
+}
+
 .social-icon, .contact-icon {
-    display: inline-block;
     padding: 0.8rem 1.5rem;
-    background: rgba(0, 168, 255, 0.2);
+    background: rgba(0, 168, 255, 0.05);
     color: #00a8ff;
     text-decoration: none;
     border-radius: 25px;
-    border: 1px solid rgba(0, 168, 255, 0.3);
+    border: 2px solid rgba(0, 168, 255, 0.3);
     transition: all 0.3s;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .social-icon:hover, .contact-icon:hover {
-    background: #00a8ff;
+    background: rgb(0, 168, 255);
     color: white;
     transform: translateY(-2px);
 }
 
+.contact-icon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contact-icon > svg{
+    margin-right: 5px;
+}
+
 .map-container {
-    max-width: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     grid-column: 1;
     grid-row: 4;
     background: rgba(255, 255, 255, 0.05);
     border-radius: 15px;
-    padding: .5rem;
+    padding: .25rem;
+    -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 2px dashed rgba(0, 168, 255, .25);
     box-shadow: 0 8px 32px rgba(0, 168, 255, 0.1);
 }
 

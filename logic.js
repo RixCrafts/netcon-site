@@ -50,6 +50,12 @@ window.addEventListener('scroll', () => {
     }
 });
 
+// Event on click => Redirection to index.html
+document.getElementById("nav-logo").addEventListener('click', () => {
+    window.location.href = "/index.html"
+});
+
+
 // Parallax effect for hero section
 window.addEventListener('scroll', () => {
     if (window.innerWidth > 768) {
@@ -221,3 +227,36 @@ document.addEventListener('DOMContentLoaded', () => {
         el.addEventListener('click', () => { window.location.href = telHref; });
     }
 })();
+
+
+// Scroll-triggered animation for contact form
+// Makes the contact form slide down when scrolling to the contact section
+document.addEventListener('DOMContentLoaded', function() {
+    const contactForm = document.getElementById('contact-cta');
+    const mapContainer = document.querySelector('.map-container');
+    
+    if (contactForm && mapContainer) {
+        // Set initial state - form hidden above viewport
+        contactForm.style.transform = 'translateY(-100px)';
+        contactForm.style.opacity = '0';
+        contactForm.style.transition = 'transform 0.8s ease-out, opacity 0.8s ease-out';
+        
+        // Create intersection observer for the map container
+        const formObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Animate form sliding down when map comes into view
+                    setTimeout(() => {
+                        contactForm.style.transform = 'translateY(0)';
+                        contactForm.style.opacity = '1';
+                    }, 300); // Delay for synchronized effect with map
+                }
+            });
+        }, {
+            threshold: 0.3, // Trigger when 30% of map is visible
+            rootMargin: '0px 0px -100px 0px'
+        });
+        
+        formObserver.observe(mapContainer);
+    }
+});
