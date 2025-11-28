@@ -1,3 +1,91 @@
+/* ====== Tech Stack Collage (hero visual filler) ====== */
+.tech-stack-icons_container {
+    grid-column: 2;
+    grid-row: 1 / 3; /* span both hero rows to fill the right column vertically */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    pointer-events: none; /* purely decorative */
+}
+
+.tech-collage {
+    width: 360px;
+    height: 640px;
+    max-width: 42vw;
+    max-height: 80vh;
+    position: relative;
+    overflow: visible;
+    display: block;
+}
+
+.tech-collage .collage-logo {
+    position: absolute;
+    width: auto;
+    height: auto;
+    max-width: 120px;
+    max-height: 120px;
+    opacity: 0.95;
+    filter: drop-shadow(0 8px 20px rgba(0,0,0,0.45));
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    will-change: transform, opacity;
+    pointer-events: none;
+}
+
+/* Individual positions and animations (staggered) */
+.tech-collage .l1 { left: 6%; top: 6%; animation: floatA 12s ease-in-out infinite; transform: rotate(-6deg) scale(.92); }
+.tech-collage .l2 { left: 58%; top: 6%; animation: floatB 10s ease-in-out infinite; transform: rotate(4deg) scale(.9); }
+.tech-collage .l3 { left: 30%; top: 12%; animation: floatC 14s ease-in-out infinite; transform: rotate(-3deg) scale(.85); }
+.tech-collage .l4 { left: 8%; top: 36%; animation: floatD 11s ease-in-out infinite; transform: rotate(12deg) scale(.78); }
+.tech-collage .l5 { left: 44%; top: 34%; animation: floatE 13s ease-in-out infinite; transform: rotate(-12deg) scale(.82); }
+.tech-collage .l6 { left: 68%; top: 40%; animation: floatA 15s ease-in-out infinite; transform: rotate(8deg) scale(.86); }
+.tech-collage .l7 { left: 12%; top: 64%; animation: floatB 9s ease-in-out infinite; transform: rotate(-4deg) scale(.88); }
+.tech-collage .l8 { left: 48%; top: 60%; animation: floatC 12s ease-in-out infinite; transform: rotate(6deg) scale(.8); }
+.tech-collage .l9 { left: 72%; top: 70%; animation: floatD 14s ease-in-out infinite; transform: rotate(-8deg) scale(.84); }
+.tech-collage .l10 { left: 26%; top: 46%; animation: floatE 10s ease-in-out infinite; transform: rotate(3deg) scale(.9); }
+.tech-collage .l11 { left: 62%; top: 18%; animation: floatA 13s ease-in-out infinite; transform: rotate(-10deg) scale(.78); }
+.tech-collage .l12 { left: 36%; top: 74%; animation: floatB 11s ease-in-out infinite; transform: rotate(10deg) scale(.86); }
+.tech-collage .l13 { left: 4%; top: 86%; animation: floatC 12s ease-in-out infinite; transform: rotate(-6deg) scale(.7); }
+.tech-collage .l14 { left: 68%; top: 86%; animation: floatD 16s ease-in-out infinite; transform: rotate(6deg) scale(.74); }
+.tech-collage .l15 { left: 42%; top: 86%; animation: floatE 18s ease-in-out infinite; transform: rotate(0deg) scale(.9); }
+
+/* Floating keyframes */
+@keyframes floatA {
+    0% { transform: translateY(0) rotate(-6deg) scale(.92); }
+    50% { transform: translateY(-22px) rotate(-2deg) scale(.96); }
+    100% { transform: translateY(0) rotate(-6deg) scale(.92); }
+}
+@keyframes floatB {
+    0% { transform: translateY(0) rotate(4deg) scale(.9); }
+    50% { transform: translateY(18px) rotate(6deg) scale(.94); }
+    100% { transform: translateY(0) rotate(4deg) scale(.9); }
+}
+@keyframes floatC {
+    0% { transform: translateY(0) rotate(-3deg) scale(.85); }
+    50% { transform: translateY(-14px) rotate(2deg) scale(.9); }
+    100% { transform: translateY(0) rotate(-3deg) scale(.85); }
+}
+@keyframes floatD {
+    0% { transform: translateY(0) rotate(12deg) scale(.78); }
+    50% { transform: translateY(10px) rotate(8deg) scale(.82); }
+    100% { transform: translateY(0) rotate(12deg) scale(.78); }
+}
+@keyframes floatE {
+    0% { transform: translateY(0) rotate(-12deg) scale(.82); }
+    50% { transform: translateY(-20px) rotate(-8deg) scale(.86); }
+    100% { transform: translateY(0) rotate(-12deg) scale(.82); }
+}
+
+/* Dip in opacity on reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    .tech-collage .collage-logo { animation: none !important; transform: none !important; }
+}
+
+/* Hide collage on small screens to avoid clutter */
+@media (max-width: 992px) {
+    .tech-stack-icons_container { display: none; }
+}
+
 .tool-box {
     background: rgba(20, 30, 60, 0.7);
     border-radius: 18px;
