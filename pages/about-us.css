@@ -6,12 +6,10 @@
 .carousel-container {
     display: flex;
     align-items: center;
-    /* width: 100vw; */
+    width: 100%;
     position: relative;
-    /* left: 50%; */
-    /* right: 50%; */
-    margin-left: -50vw;
-    margin-right: -50vw;
+    margin-left: 0;
+    margin-right: 0;
     background: linear-gradient(to right,
         rgba(255, 255, 255, 0) 0%,
         rgba(255, 255, 255, 0.08) 10%,
@@ -22,6 +20,7 @@
 
 .hero{
     grid-template-columns: 1fr .75fr;
+    overflow-x: hidden;
 }
 
 .hero-logo{
